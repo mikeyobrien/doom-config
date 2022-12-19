@@ -3,6 +3,9 @@
 
 (setq user-full-name "Mikey O'Brien"
       user-mail-address "hughobrien.v@gmail.com")
+(setq doom-font (font-spec :family "JetBrains Mono" :size 14)
+      doom-serif-font (font-spec :family "JetBrains Mono"))
+
 
 (use-package-hook! evil
   :pre-init
@@ -46,13 +49,13 @@ https://github.com/plantuml/plantuml-stdlib"
   (add-hook! 'org-mode-hook 'turn-on-visual-line-mode)
   (setq org-capture-templates
         '(("t" "todo" entry (file+headline "todo.org" "Unsorted")
-           "* [ ] %?\n\%i\n%a"
+           "* TODO %?\n\%i\n%a"
            :prepend t)
           ("d" "deadline" entry (file+headline "todo.org" "Schedule")
-           "* [ ] %?\nDEADLINE: <%(org-read-date)>\n\n%i\n%a"
+           "* TODO %?\nDEADLINE: <%(org-read-date)>\n\n%i\n%a"
            :prepend t)
           ("s" "schedule" entry (file+headline "todo.org" "Schedule")
-           "* [ ] %?\nSCHEDULED: <%(org-read-date)>\n\n%i\n%a"
+           "* TODO %?\nSCHEDULED: <%(org-read-date)>\n\n%i\n%a"
            :prepend t)))
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -149,3 +152,10 @@ https://github.com/plantuml/plantuml-stdlib"
 
 (setq treemacs-file-ignore-extensions '())
 (setq treemacs-file-ignore-globs '())
+
+
+;; TODO add template generators for day,week,month,year logs
+
+(use-package! direnv
+  :config
+  (direnv-mode))

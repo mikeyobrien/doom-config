@@ -51,10 +51,12 @@
 
 (if (file-exists-p "private-packages.el") (load! "private-packages.el"))
 (package! nix-mode)
+(package! direnv)
 (package! elisp-format)
 (package! ox-gfm)
 (package! company-native-complete)
 (package! tree-sitter-langs)
+(package! d2-mode)
 (package! flymake-vale :recipe
   (:type git :host github :repo "tpeacock19/flymake-vale"))
 (package! flymake-cursor
