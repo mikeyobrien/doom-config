@@ -1,11 +1,9 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-(if (file-exists-p "private-config.el") (load! "private-config.el"))
 
 (setq user-full-name "Mikey O'Brien"
       user-mail-address "hughobrien.v@gmail.com")
 (setq doom-font (font-spec :family "JetBrains Mono" :size 14)
       doom-serif-font (font-spec :family "JetBrains Mono"))
-
 
 (use-package-hook! evil
   :pre-init
@@ -153,9 +151,11 @@ https://github.com/plantuml/plantuml-stdlib"
 (setq treemacs-file-ignore-extensions '())
 (setq treemacs-file-ignore-globs '())
 
-
 ;; TODO add template generators for day,week,month,year logs
 
 (use-package! direnv
   :config
   (direnv-mode))
+
+
+(load! "private/private-config.el")
